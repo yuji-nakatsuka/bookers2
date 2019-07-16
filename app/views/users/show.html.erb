@@ -1,0 +1,5 @@
+<h1>マイページ</h1>
+
+<p><%= current_user.name %></p>
+<p><%= current_user.introduction %></p>
+<%= link_to "EDIT",edit_user_path(current_user)%>
