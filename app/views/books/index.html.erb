@@ -1,7 +1,16 @@
-<div class="col-xs-9">
+
+ <%= render 'users/header' %>
+
+
+<div class="row">
+
+ <%= render 'users/sidebar', users: @book %>
+
+  <div class="col-xs-9">
     <h2>Books</h2>
 
-    <table class="table table-hover table-inverse">
+
+  <table class="table table-hover table-inverse">
   <thead>
     <tr> 
       <th></th>
@@ -12,14 +21,16 @@
   </thead>
 
   <tbody>
-      <% @books.each do |book| %>
+      <% @book2.each do |book| %>
       <tr>
-        <td><%link_to book_path(book.id) do %>
-          <%= book.title %>
-        </td><% end %>
+        <td></td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
         <td><%= book.body %></td>
       </tr>
       <% end %>
   </tbody>
 </table>
   </div>
+</div>
+
+<%= render 'users/footer' %>

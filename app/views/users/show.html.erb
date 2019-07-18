@@ -1,3 +1,7 @@
+
+ <%= render 'users/header' %>
+
+
 <div class="body">
       <div class="container">
 
@@ -5,44 +9,8 @@
 
 
       	<div class="row">
-  
-  <div class="col-xs-3">
-    <h2>User info</h2>
-    <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image"><table class="table">
-      <tbody><tr></tr> 
-      <tr>
-    	  <th>name</th>
-    	  <th>test</th>
-      </tr>
-      <tr>
-    	  <th>introduction</th>
-    	  <th></th>
-      </tr>
-</tbody></table>
 
-<div class="row">
-  <%= link_to "Edit", edit_user_path(current_user) %>
-</div>
-
-    <h2>New book</h2>
-    <%= form_for(@book) do |f| %>
-
-  <div class="field row">
-    <label for="book_title">Title</label>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field row">
-    <label for="book_opinion">Opinion</label>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="actions row">
-    <%= f.submit 'Create book' %>
-  </div>
-<% end %>
-
-  </div>
+<%= render 'users/sidebar', users: @book %>
 
   <div class="col-xs-9">
     <h2>Books</h2>
@@ -60,7 +28,7 @@
   <tbody>
       <% @user.books.each do |book| %>
       <tr>
-        <td><% link_to user_path (@user) do %>
+        <td><% link_to user_path(@user) do %>
           <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon">
           <% end %>
       </td>
@@ -75,3 +43,5 @@
 </div>
       </div>
     </div>
+
+     <%= render 'users/footer' %>

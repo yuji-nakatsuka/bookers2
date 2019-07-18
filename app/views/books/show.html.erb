@@ -1,67 +1,25 @@
-<div class="body">
-      <div class="container">
 
-        <p id="notice"></p>
+ <%= render 'users/header' %>
 
-
-      	<div class="row">
-  <div class="col-xs-3">
-    <h2>User info</h2>
-    <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image"><table class="table">
-      <tbody><tr></tr> 
-      <tr>
-    	  <th>name</th>
-    	  <th>test</th>
-      </tr>
-      <tr>
-    	  <th>introduction</th>
-    	  <th></th>
-      </tr>
-</tbody></table>
-
-<div class="row">
-  <%= link_to "Edit", edit_user_path(current_user) %>
-</div>
-
-    <h2>New book</h2>
-    <%= form_for(@book) do |f| %>
-
-  <div class="field row">
-    <label for="book_title">Title</label>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field row">
-    <label for="book_opinion">Opinion</label>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="actions row">
-    <%= f.submit 'Create book' %>
-  </div>
-<% end %>
-
-  </div>
-  
+ <%= render 'users/sidebar', users: @book %>
 
   <div class="col-xs-9">
 		<h2>Book detail</h2>
 		<table class="table">
 		  <tbody><tr>
-        <td><% link_to user_path(@user) do %>
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon">
+        <td><%= link_to user_path(@book2.user_id) do %>
+           <%= attachment_image_tag @book2.user, :profile_image, :fill, 200, 200  %>
           <% end %><br>
-          <%= @user.name %>
-</a>        </td>
+          <%= @book2.user.name %>
+     </td>
         <td><%= link_to @book2.title, book_path(@book2) %></td>
         <td><%= @book2.body%></td>
 
-          <td><a class="btn-sm btn-success edit_book_9396" href="/books/9396/edit">Edit</a></td>
-          <td><a data-confirm="本当に消しますか？" class="btn-sm btn-danger destroy_book_9396" rel="nofollow" data-method="delete" href="/books/9396">Destroy</a></td>
+          <td><%= link_to "Edit", edit_book_path(@book2)%></td>
+          <td><%= link_to "Destroy", book_path(@book2), method: :delete %></td>
       </tr>
     </tbody></table>
 
   </div>
-</div>
-      </div>
-    </div>
+
+ <%= render 'users/footer' %>
