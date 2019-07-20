@@ -4,22 +4,35 @@
 
 <div class="container">
 
+<p id="notice"><%= flash[:notice] %></p>
+
  <%= render 'users/sidebar', users: @book %>
 
   <div class="col-xs-9">
 		<h2>Book detail</h2>
 		<table class="table">
 		  <tbody><tr>
+        <% if @book2.user.profile_image.nil? %>
         <td><%= link_to user_path(@book2.user_id) do %>
-           <%= attachment_image_tag @book2.user, :profile_image, :fill, 200, 200  %>
-          <% end %><br>
+           <%= image_tag "no_image.jpg",size:"40x40" %><br>
           <%= @book2.user.name %>
-     </td>
+           <% end %>
+           </td>
+        <% else %>
+        <td><%= link_to user_path(@book2.user_id) do %>
+           <%= attachment_image_tag @book2.user, :profile_image, :fill, 40, 40  %><br>
+          <%= @book2.user.name %>
+          <% end %>
+          </td>
+          <% end %>
+
         <td><%= link_to @book2.title, book_path(@book2) %></td>
         <td><%= @book2.body%></td>
 
-          <td><%= link_to "Edit", edit_book_path(@book2)%></td>
-          <td><%= link_to "Destroy", book_path(@book2), method: :delete %></td>
+        <% if @book2.user==current_user %>
+          <td><%= link_to "Edit", edit_book_path(@book2),class:"btn-sm btn-success edit_book_9513" %></td>
+          <td><%= link_to "Destroy", book_path(@book2), method: :delete, data: { confirm: "本当に消しますか？" },class:"btn-sm btn-danger destroy_book_9513" %></td>
+        <% end %>
       </tr>
     </tbody></table>
 

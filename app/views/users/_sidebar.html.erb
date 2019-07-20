@@ -19,14 +19,12 @@
 </tbody></table>
 
 <div class="row">
-  <%= link_to "Edit", edit_user_path(current_user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_5739" %>
+  <%= link_to "", edit_user_path(current_user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_5739" %>
 </div>
 
     <h2>New book</h2>
-    <%= form_for(@book) do |f| %>
+    <%= form_for(@book,html:{class:"new_book",id:"new_book"}) do |f| %>
 
-
-    <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
 
   <div class="field row">
     <label for="book_title">Title</label>
@@ -36,12 +34,12 @@
   <div class="field row">
     <label for="book_opinion">Opinion</label>
     <%= f.text_area :body, class:"col-xs-12 book_body", name:"book[body]", id:"book_body" %>
+    </div>
 
   <div class="actions row">
     <%= f.submit 'Create book', name:"commit", class:"btn btn-primary col-xs-12", data: { disable_with: "Create Book" } %>
   </div>
 <% end %>
 
-  </div>
 
 </div>

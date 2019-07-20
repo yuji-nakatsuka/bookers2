@@ -19,3 +19,105 @@
  .container {
 	margin:0 auto
 }
+
+.field, .actions{
+    margin-bottom: 10px;
+}
+
+a,p:visited {
+    color: #666;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #000;
+}
+
+
+.body {
+    margin-top: 51px;
+}
+
+
+p, ol, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 33px;
+}
+
+header {
+    color: white;
+}
+
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.navbar-inverse {
+    background-color: #222;
+    border-color: #090909;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+p {
+    margin: 0 0 10px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+#error_explanation {
+    color: red;
+}
+
+#error_explanation  h3{
+    margin:20px 0 10px
+}
+
+
+.alert-danger {
+    color: initial;
+    background-color: initial;
+    border-color: initial;
+}
+
+
+.alert {
+    padding: 0;
+    margin-bottom: 0px;
+    border: none;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+#notice {
+    color: green;
+}

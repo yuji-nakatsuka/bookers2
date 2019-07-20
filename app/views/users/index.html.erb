@@ -21,7 +21,11 @@
   <tbody>
   	<% @users.each do |user| %>
       <tr>
+        <% if user.profile_image.nil? %>
+        <td><%= image_tag "no_image.jpg",size:"40x40" %></td>
+        <% else %>
         <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg"  %></td>
+        <% end %>
         <td><%= user.name %></td>
         <td><%= link_to "Show", user_path(user.id)%></td>
       </tr>
